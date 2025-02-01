@@ -1,0 +1,310 @@
+/* Global Reset and Box Model */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling for default theme */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light theme */
+body.light-theme {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Dark theme */
+body.dark-theme {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+}
+
+/* Container for forms and results */
+.container {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Light theme container */
+body.light-theme .container {
+    background-color: #fff;
+}
+
+/* Dark theme container */
+body.dark-theme .container {
+    background-color: #34495e;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Header Styling */
+h1 {
+    font-size: 32px;
+    color: #007bff;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Light and dark theme header */
+body.light-theme h1 {
+    color: #007bff;
+}
+
+body.dark-theme h1 {
+    color: #3498db;
+}
+
+/* Form styling */
+form {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* Label Styling */
+label {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 6px;
+    display: block;
+}
+
+/* Input and Select styling */
+input[type="text"], select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+/* Light and dark theme input styles */
+body.light-theme input[type="text"], body.light-theme select {
+    border-color: #ccc;
+}
+
+body.dark-theme input[type="text"], body.dark-theme select {
+    border-color: #7f8c8d;
+    background-color: #34495e;
+    color: #ecf0f1;
+}
+
+/* Button styling */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Button focus effect */
+button:focus {
+    outline: none;
+}
+
+/* Error Styling */
+.error {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+/* Results Section Styling */
+.results {
+    margin-top: 30px;
+    text-align: left;
+}
+
+/* Result Title */
+h2 {
+    font-size: 24px;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+/* Indicator Results */
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul li {
+    font-size: 16px;
+    margin: 8px 0;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 14px;
+    color: #7f8c8d;
+}
+
+/* Light and dark theme footer */
+body.light-theme footer {
+    color: #7f8c8d;
+}
+
+body.dark-theme footer {
+    color: #bdc3c7;
+}
+
+footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.theme-toggle:hover {
+    background-color: #0056b3;
+}
+
+/* Settings Page Styling */
+.settings-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+h1.settings-title {
+    font-size: 32px;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+/* Light and dark theme settings page */
+body.light-theme .settings-container {
+    background-color: #fff;
+}
+
+body.dark-theme .settings-container {
+    background-color: #34495e;
+}
+
+/* Settings Form */
+form.settings-form {
+    width: 100%;
+}
+
+.settings-form .form-group {
+    margin-bottom: 20px;
+}
+
+.settings-form label {
+    font-size: 14px;
+    color: #555;
+}
+
+.settings-form input[type="text"], .settings-form select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.settings-form button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.settings-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Back button on settings page */
+a.back-btn {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+a.back-btn:hover {
+    text-decoration: underline;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    .container, .settings-container {
+        width: 100%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+}

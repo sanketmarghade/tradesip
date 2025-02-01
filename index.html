@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading View Analysis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- Theme Toggle Button -->
+<button id="theme-toggle" class="theme-toggle">
+    Switch to Dark Mode
+</button>
+
+<div class="container">
+    <h1>Trading View Technical Analysis</h1>
+
+    <form method="POST" action="/">
+        <div class="form-group">
+            <label for="symbol">Trading Symbol (e.g., AAPL, TSLA)</label>
+            <input type="text" id="symbol" name="symbol" value="{{ symbol }}" placeholder="Enter symbol" required>
+        </div>
+
+        <div class="form-group">
+            <label for="interval">Select Interval</label>
+            <select id="interval" name="interval" required>
+                {% for interval in intervals %}
+                    <option value="{{ interval }}" {% if interval == selected_interval %}selected{% endif %}>
+                        {{ interval }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <button type="submit">Get Analysis</button>
+    </form>
+
+    {% if error_message %}
+    <div class="error">{{ error_message }}</div>
+    {% endif %}
+
+    {% if analysis_result %}
+    <div class="results">
+        <h2>Analysis Results</h2>
+        <h3>Summary:</h3>
+        <ul>
+            <li><strong>Buy:</strong> {{ analysis_result.summary['BUY'] }}</li>
+            <li><strong>Sell:</strong> {{ analysis_result.summary['SELL'] }}</li>
+            <li><strong>Neutral:</strong> {{ analysis_result.summary['NEUTRAL'] }}</li>
+        </ul>
+        <h3>Indicators:</h3>
+        <ul>
+            {% for indicator, value in analysis_result.indicators.items() %}
+            <li><strong>{{ indicator }}:</strong> {{ value }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+</div>
+
+<footer>
+    <p>&copy; 2024 TradingView Analysis. All Rights Reserved.</p>
+</footer>
+
+<script>
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // Check if the theme is saved in localStorage
+    if (localStorage.getItem('theme') === 'dark') {
+        body.classList.add('dark-theme');
+        themeToggleBtn.innerText = 'Switch to Light Mode';
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+        body.classList.toggle('dark-theme');
+        
+        // Save the theme in localStorage
+        if (body.classList.contains('dark-theme')) {
+            themeToggleBtn.innerText = 'Switch to Light Mode';
+            localStorage.setItem('theme', 'dark');
+        } else {
+            themeToggleBtn.innerText = 'Switch to Dark Mode';
+            localStorage.setItem('theme', 'light');
+        }
+    });
+</script>
+
+</body>
+</html>
